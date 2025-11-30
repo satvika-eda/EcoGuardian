@@ -35,12 +35,12 @@ Over 150 million Americans live in regions with poor air quality — yet daily h
 
 ## 🏗️ Architecture
 
-![architecture](architecture.png)
+![architecture](img/architecture.png)
 
 ### Execution Flow
-![EF-1](execution_flow_1.png)
+![EF-1](img/execution_flow_1.png)
 
-![EF-2](execution_flow_2.png)
+![EF-2](img/execution_flow_2.png)
 
 ````
 

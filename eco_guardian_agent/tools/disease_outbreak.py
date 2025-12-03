@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime, timezone, timedelta
 from typing import List, Dict, Optional
-from tools.helpers import get_coords
+from .helpers import get_coords
 
 def get_disease_outbreaks(location: str) -> Dict:
     """

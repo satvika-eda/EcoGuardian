@@ -42,7 +42,6 @@ Over 150 million Americans live in regions with poor air quality — yet daily h
 
 ![EF-2](img/execution_flow_2.png)
 
-````
 
 ### Agent Hierarchy
 
@@ -70,6 +69,11 @@ Over 150 million Americans live in regions with poor air quality — yet daily h
 
 #### Events Agent
 - Uses google_search tool for environmental/sustainability events  
+
+---
+## Application Deployment URL :
+
+https://ecoguardian-mqvs64cf3q-uc.a.run.app/
 
 ---
 
@@ -153,7 +157,7 @@ streamlit run app.py
 ### Example Queries
 
 * "How's the environment in Miami today?"
-* "I have fever and cough for 8 days in Boston."
+* "I have fever and cough for 8 days in Miami."
 * "Find nearest hospitals."
 * "What sustainability events are happening this weekend?"
 
@@ -201,27 +205,6 @@ Each API is accessed via an ADK `Tool()` or `AgentTool()`.
 
 ---
 
-## 📁 Project Structure
-
-```
-ecoguardian/
-├── agent.py
-├── app.py
-├── prompts.py
-├── tools/
-│   ├── air_quality.py
-│   ├── weather.py
-│   ├── pollen.py
-│   ├── uv_index.py
-│   └── disease_outbreak.py
-├── ecoguardian_sessions.db
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
-
----
-
 ## 🎓 ADK Concepts Implemented
 
 * **Multi-Agent System (10 agents total)**
@@ -234,6 +217,8 @@ ecoguardian/
 * **Observability (LoggingPlugin)**
 * **Retry logic for API failures**
 * **Medical safety guardrails**
+* **Evaluation Suite**
+* **Agent Deployment**
 
 ---
 
@@ -266,9 +251,8 @@ ecoguardian/
 ### Technical Improvements
 
 * Caching
-* Agent Evaluation Suite
 * A2A protocol (Agent-to-Agent)
-* Cloud Run / Agent Engine deployment
 * Monitoring dashboard (Grafana + Prometheus)
 
 ```
+

@@ -3,17 +3,18 @@ from google.adk.agents import Agent, LlmAgent, ParallelAgent, SequentialAgent
 from google.adk.models import Gemini
 from google.adk.tools import google_search
 from google.adk.tools.agent_tool import AgentTool
-from prompts import *
-from tools.air_quality import get_air_quality
-from tools.disease_outbreak import (
+from .prompts import *
+from .tools.air_quality import get_air_quality
+from .tools.disease_outbreak import (
     search_disease_outbreaks_web, 
     get_disease_outbreaks, 
     check_symptoms, 
-    find_nearest_hospitals
+    find_nearest_hospitals,
 )
-from tools.uv_index import get_uv_index
-from tools.weather import get_weather
-from tools.pollen import get_pollen
+from .tools.uv_index import get_uv_index
+from .tools.weather import get_weather
+from .tools.pollen import get_pollen
+
 
 retry_config=types.HttpRetryOptions(
     attempts=5,  

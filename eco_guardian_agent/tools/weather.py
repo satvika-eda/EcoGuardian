@@ -1,5 +1,5 @@
 import requests
-from tools.helpers import get_coords
+from .helpers import get_coords
 
 def get_weather(city: str):
     """Fetch current weather (numeric only) using Open-Meteo API."""

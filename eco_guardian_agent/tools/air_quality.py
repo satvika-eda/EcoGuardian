@@ -1,6 +1,6 @@
 import requests
 import os
-from tools.helpers import get_coords
+from .helpers import get_coords
 
 OPENAQ_API_KEY = os.getenv("OPENAQ_API_KEY")
 

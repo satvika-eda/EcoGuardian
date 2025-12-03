@@ -1,5 +1,5 @@
 import requests
-from tools.helpers import get_coords
+from .helpers import get_coords
 
 
 def get_uv_index(city: str):

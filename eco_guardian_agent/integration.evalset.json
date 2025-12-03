@@ -1,0 +1,152 @@
+{
+  "eval_set_id": "ecoguardian_integration_suite",
+  "eval_cases": [
+    {
+      "eval_id": "air_quality_Miami",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "I am in Miami. Please give me today's air quality and short health recommendations for someone with mild asthma."
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is today's air quality in Miami. I summarize the AQI, explain what that category means for your lungs, and give concrete advice for someone with mild asthma, including whether outdoor exercise is safe and any precautions to take."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "weather_Miami_walk",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "For Miami, what's the current weather and how will it feel if I go for a 30 minute walk outside right now?"
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I describe the current weather in Miami, including temperature, humidity, wind and any rain. Then I explain in plain language how a 30 minute walk will feel and whether you need a jacket or umbrella."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "pollen_Miami_run",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "I have seasonal allergies and I'm in Miami. Check today's pollen levels and tell me if it's a good idea to go for a run outside."
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I report today's pollen levels in Miami, mention the dominant allergen types, and clearly say whether going for a run is advised for someone with allergies, plus any medication or timing tips."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "uv_index_Miami",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the UV index in Miami, right now and roughly how long can a fair-skinned person stay in the sun without sunscreen?"
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I give the current UV index in Miami, explain what that level means, and give a rough safe exposure window for fair-skinned people along with sunscreen and shade recommendations."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "events_env_Miami_weekend",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "This weekend I'm in Miami and I want to join environmental or climate-related events like cleanups, talks or meetups. Find a few concrete options and summarize them."
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I list several specific environmental or climate-related events in Miami for the upcoming weekend, including each event's name, date, location and a one-line summary so you can quickly choose."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "disease_outbreak_Miami_context",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "Give me a quick summary of any current or recent disease outbreaks around Miami, that I should know about. If there is nothing significant, say that clearly."
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I summarize any notable recent or ongoing disease outbreaks in the Miami area, including the disease names and rough severity. If there is nothing significant, I clearly state that there are no major public health alerts at the moment."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "disease_full_flow_Miami",
+      "conversation": [
+        {
+          "user_content": {
+            "parts": [
+              {
+                "text": "I live in Miami. I've had fever, cough and headache for two days and I'm worried it might be related to something going around locally. 1) Check relevant local disease outbreaks, 2) tell me how urgent this sounds, and 3) list nearby hospitals or urgent care options I could go to."
+              }
+            ]
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I connect your symptoms with any relevant local outbreaks, explain in plain language how concerning this sounds and what warning signs to watch for, and then list several nearby hospitals or urgent care centers in Miami with names and approximate locations."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

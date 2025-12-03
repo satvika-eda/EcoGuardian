@@ -6,3 +6,4 @@ streamlit==1.51.0
 aiosqlite==0.21.0
 jupytext==1.18.1
 greenlet==3.2.4
+google-adk[eval]

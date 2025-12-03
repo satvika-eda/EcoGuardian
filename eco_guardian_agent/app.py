@@ -10,18 +10,12 @@ import time
 from datetime import datetime
 from typing import Dict
 from google.genai import types
-from google.adk.runners import Runner
-from google.adk.memory import InMemoryMemoryService
-from google.adk.plugins.logging_plugin import LoggingPlugin
-from google.adk.sessions import DatabaseSessionService
-
-from agent import root_agent
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 APP_NAME = "EcoGuardian"
-DB_FILE = Path(__file__).parent.absolute() / "ecoguardian_sessions.db"
+DB_FILE = "/tmp/ecoguardian_sessions.db"
 DB_URL = f"sqlite+aiosqlite:///{DB_FILE}"
 
 # ============================================================================
@@ -43,6 +37,14 @@ def run_in_loop(coro):
 # ============================================================================
 @st.cache_resource
 def initialize_runner():
+
+    from google.adk.runners import Runner
+    from google.adk.memory import InMemoryMemoryService
+    from google.adk.plugins.logging_plugin import LoggingPlugin
+    from google.adk.sessions import DatabaseSessionService
+
+    from agent import root_agent
+
     session_service = DatabaseSessionService(db_url=DB_URL)
     memory_service = InMemoryMemoryService()
     runner = Runner(
@@ -55,7 +57,15 @@ def initialize_runner():
     return runner, session_service, memory_service
 
 
-runner, session_service, memory_service = initialize_runner()
+def get_adk():
+    if "adk_runner" not in st.session_state:
+        st.session_state.adk_runner, st.session_state.session_service, st.session_state.memory_service = initialize_runner()
+    return (
+        st.session_state.adk_runner,
+        st.session_state.session_service,
+        st.session_state.memory_service
+    )
+
 
 # ============================================================================
 # SESSION & AGENT HELPERS
@@ -63,6 +73,8 @@ runner, session_service, memory_service = initialize_runner()
 def ensure_session_exists(user_id: str, session_id: str):
     # sourcery skip: use-contextlib-suppress
     """Ensure session exists in database for this user/session."""
+    runner, session_service, memory_service = get_adk()
+
 
     async def _create():
         try:
@@ -81,6 +93,7 @@ def ensure_session_exists(user_id: str, session_id: str):
 async def ask_agent_async(query: str, user_id: str, session_id: str) -> str:
     """Send query to agent through Runner and return final text."""
     query_content = types.Content(role="user", parts=[types.Part(text=query)])
+    runner, session_service, memory_service = get_adk()
 
     async for event in runner.run_async(
         user_id=user_id,
@@ -98,6 +111,8 @@ def agent_call(query: str) -> str:
     """Synchronous wrapper - reuses user's ADK session."""
     user_id = st.session_state.user_id
     session_id = st.session_state.adk_session_id
+
+    runner, session_service, memory_service = get_adk()
 
     ensure_session_exists(user_id, session_id)
     return run_in_loop(ask_agent_async(query, user_id, session_id))
